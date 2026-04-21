@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar - Left Panel -->
+            <div class="sidebar">
+                <!-- Filters Section -->
+                <div class="filter-section">
+                    <h2 class="section-title">Filters</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="brightness" id="btnBrightness" disabled>Brightness</button>
+                        <button class="filter-btn" data-filter="saturation" id="btnSaturation" disabled>Saturation</button>
+                        <button class="filter-btn" data-filter="inversion" id="btnInversion" disabled>Inversion</button>
+                        <button class="filter-btn" data-filter="grayscale" id="btnGrayscale" disabled>Grayscale</button>
+                    </div>
+                </div>
+
+                <!-- Slider Section -->
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span id="filterName">Brightness</span>
+                        <span class="slider-value" id="filterValue">100%</span>
+                    </div>
+                    <input type="range" id="filterSlider" min="0" max="200" value="100" step="3" disabled>
+                </div>
+
+                <!-- Rotate Section -->
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Rotate</span>
+                        <span class="slider-value" id="rotateValue">0°</span>
+                    </div>
+                    <input type="range" id="rotateSlider" min="0" max="360" value="0" step="3" disabled>
+                </div>
+
+                <!-- Rotate and Flip Section -->
+                <div class="rotate-flip-section">
+                    <h2 class="section-title">Rotate & Flip</h2>
+                    <div class="rotate-buttons">
+                        <button class="icon-btn" id="rotateLeft" title="Rotate Left" disabled>↶</button>
+                        <button class="icon-btn" id="rotateRight" title="Rotate Right" disabled>↷</button>
+                        <button class="icon-btn" id="flipHorizontal" title="Flip Horizontal" disabled>⇄</button>
+                        <button class="icon-btn" id="flipVertical" title="Flip Vertical" disabled>⇅</button>
+                    </div>
+                </div>
+
+                <!-- Additional Filters Section -->
+                <div class="filter-section">
+                    <h2 class="section-title">Additional Filters</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn" data-filter="sepia" id="btnSepia" disabled>Sepia</button>
+                        <button class="filter-btn" data-filter="blur" id="btnBlur" disabled>Blur</button>
+                    </div>
+                </div>
+
+                <!-- Undo/Redo Section -->
+                <div class="undo-redo-section">
+                    <h2 class="section-title">Actions</h2>
+                    <div class="undo-redo-buttons">
+                        <button class="action-btn-small" id="undoBtn" disabled title="Undo">↶ Undo</button>
+                        <button class="action-btn-small" id="redoBtn" disabled title="Redo">↷ Redo</button>
+                    </div>
+                </div>
+
+                <!-- History Panel -->
+                <div class="history-section">
+                    <h2 class="section-title">History</h2>
+                    <div class="history-panel" id="historyPanel">
+                        <div class="history-empty">No changes yet</div>
+                    </div>
+                </div>
+
+                <!-- Bottom Buttons -->
+                <div class="bottom-buttons">
+                    <button class="reset-btn" id="resetFilters" disabled>Reset Filters</button>
+                </div>
+            </div>
+
+            <!-- Canvas Area - Right Panel -->
+            <div class="canvas-area">
+                <div class="canvas-wrapper">
+                    <div class="no-image-message" id="noImageMessage">
+                        <h2>No Image Loaded</h2>
+                        <p>Choose an image to start editing</p>
+                    </div>
+                    <canvas id="canvas"></canvas>
+                </div>
+
+                <!-- Bottom Action Buttons -->
+                <div class="canvas-buttons">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <button class="action-btn btn-choose" id="chooseImage">Choose Image</button>
+                    <button class="action-btn btn-save" id="saveImage" disabled>Save Image</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
